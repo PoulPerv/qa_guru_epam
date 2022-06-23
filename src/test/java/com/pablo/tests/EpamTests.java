@@ -4,7 +4,6 @@ import com.pablo.helpers.DriverUtils;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -16,37 +15,32 @@ public class EpamTests extends TestBase {
     @Test
     @DisplayName("Russian language test")
     void ruLanguageTest() {
-        step("open https://www.epam.com/", () -> {
-            open("https://www.epam.com/");
-        });
+        step("open https://www.epam.com/", () ->
+            open("https://www.epam.com/")
+        );
 
-        step("click SELECT A LANGUAGE", () -> {
-            $(".location-selector__button").click();
-        });
+        step("click SELECT A LANGUAGE", () ->
+            $(".location-selector__button").click()
+        );
 
-        step("click \"СНГ\"", () -> {
-            $(".location-selector__panel").$(byText("СНГ")).click();
-        });
+        step("click \"СНГ\"", () ->
+            $(".location-selector__panel").$(byText("СНГ")).click()
+        );
 
-        step("verify language", () -> {
-            $(".layout-box").shouldHave(text("Присоединяйтесь к глобальной команде профессионалов"));
-        });
+        step("verify language", () ->
+            $(".layout-box").shouldHave(text("Присоединяйтесь к глобальной команде профессионалов"))
+        );
     }
 
     @Test
     @DisplayName("Poland language test")
     void plLanguageTest() {
-        step("open https://www.epam.com/", () -> {
-            open("https://www.epam.com/");
-        });
+        step("open https://www.epam.com/", () ->
+                open("https://www.epam.com/"));
+        step("click SELECT A LANGUAGE", () ->
+                $(".location-selector__button").click());
 
-        step("click SELECT A LANGUAGE", () -> {
-            $(".location-selector__button").click();
-        });
-
-        step("click \"PL\"", () -> {
-            $(".location-selector__panel").$(byText("Polska")).click();
-        });
+        step("click \"PL\"", () -> $(".location-selector__panel").$(byText("Polska")).click());
 
         step("verify language", () -> {
             $(".header__content").shouldHave(text("Polska"));
@@ -56,17 +50,11 @@ public class EpamTests extends TestBase {
     @Test
     @DisplayName("German language test")
     void deLanguageTest() {
-        step("open https://www.epam.com/", () -> {
-            open("https://www.epam.com/");
-        });
+        step("open https://www.epam.com/", () -> open("https://www.epam.com/"));
 
-        step("click SELECT A LANGUAGE", () -> {
-            $(".location-selector__button").click();
-        });
+        step("click SELECT A LANGUAGE", () -> $(".location-selector__button").click());
 
-        step("click \"DACH\"", () -> {
-            $(".location-selector__panel").$(byText("DACH")).click();
-        });
+        step("click \"DACH\"", () -> $(".location-selector__panel").$(byText("DACH")).click());
 
         step("verify language", () -> {
             $(".header__content").shouldHave(text("DACH"));
@@ -76,13 +64,9 @@ public class EpamTests extends TestBase {
     @Test
     @DisplayName("Switching to tabs test")
     void switchingTest() {
-        step("open https://www.epam.com/", () -> {
-            open("https://www.epam.com/");
-        });
+        step("open https://www.epam.com/", () -> open("https://www.epam.com/"));
 
-        step("click ow We Do It", () -> {
-            $(".header__content").$(byText("How We Do It")).click();
-        });
+        step("click ow We Do It", () -> $(".header__content").$(byText("How We Do It")).click());
 
         step("verify text", () -> {
             $(".title").shouldHave(text("How We Do It"));
@@ -92,13 +76,9 @@ public class EpamTests extends TestBase {
     @Test
     @DisplayName("Search test")
     void searchTest() {
-        step("open https://www.epam.com/", () -> {
-            open("https://www.epam.com/");
-        });
+        step("open https://www.epam.com/", () -> open("https://www.epam.com/"));
 
-        step("click search", () -> {
-            $(".header-search__button").click();
-        });
+        step("click search", () -> $(".header-search__button").click());
 
         step("set value", () -> {
             $("#new_form_search").setValue("Contact").pressEnter();
